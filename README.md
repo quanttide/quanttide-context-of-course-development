@@ -1,14 +1,23 @@
 # 量潮课程研发语境
 
-本仓库记录 `quanttide-course` 项目研发过程中的关键结论、决策和思路演变。
+课程研发的短期记忆：手机端随手收集，回到电脑上整理分发到各正本仓。移出的不留副本，分发完本仓应回到只剩 README 与 CONTRIBUTING 的状态。
 
-## 文件索引
+## 分发表
 
-| 文件 | 内容 |
-|------|------|
-| [production-pipeline.md](./production-pipeline.md) | 课程内容生产管线——两条路径（预设生产 + 录制沉淀）的统一框架 |
-| [product-direction.md](./product-direction.md) | 产品方向——Studio 定位、多场景设计、考核模式 |
-| [developer-profile.md](./developer-profile.md) | 创始人画像——工作特征、决策模式、协作习惯 |
-| [ai-reflection.md](./ai-reflection.md) | AI 协作反思——与创始人协作的经验教训 |
+| 收到的内容 | 分发到 | 说明 |
+|---|---|---|
+| 想明白的判断与反思 | `data/insight` | 长期记忆，提炼成篇后再进 |
+| 按天的日志 | `data/journal` | 一门课程一个文件夹，一天一个文件 |
+| 课件、课程内容 | `data/profile` | 按该仓 CONTRIBUTING 的课时结构 |
+| 教程脚本、样例 | `assets/tutorials` | 视频录制脚本 |
+| 决策档案 | `data/report` | 已成文的决策不再回流 |
 
-所有文件按主题独立，内容互斥，不重复。
+## 流程
+
+1. 手机随手收，文件名写日期或主题即可，不求规整
+2. 电脑整理：读一遍 → 按上表分发 → 本仓删掉原件
+3. 分发规则见 [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+## 许可
+
+[CC BY 4.0](./LICENSE)

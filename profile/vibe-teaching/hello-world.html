@@ -4,12 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#6b4423">
-<title>课程研发 Hello World · 把一件熟事做成一门课</title>
+<title>Vibe Teaching · Hello World · 把一件你熟的事做成一门课</title>
 <style>
   :root{
     --coffee:#6b4423; --caramel:#b4793a; --accent:#a8562f; --gold:#b4793a;
-    --cream:#fffdf8; --ink:#3a271c; --sub:#8a7358; --green:#3f8c63;
-    --paper:#fffdf8; --night:#2f261c; --line:rgba(107,68,35,.16);
+    --cream:#fffdf8; --ink:#3a271c; --sub:#8a7358; --green:#3f8c63; --night:#2f261c; --line:rgba(107,68,35,.16);
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
@@ -21,20 +20,17 @@
     color:var(--ink);padding:22px 14px 48px;line-height:1.7;
   }
   .wrap{max-width:600px;margin:0 auto}
-
   .hero{text-align:center;padding:12px 6px 22px}
   .kicker{display:inline-block;font-size:12px;letter-spacing:.18em;color:var(--accent);
     border:1px solid rgba(168,86,47,.4);border-radius:999px;padding:5px 14px;margin-bottom:14px;font-weight:800}
-  .hero h1{font-size:27px;line-height:1.35;margin:0 0 8px;font-weight:900;color:var(--coffee)}
+  .hero h1{font-size:26px;line-height:1.35;margin:0 0 8px;font-weight:900;color:var(--coffee)}
   .hero p{margin:0;font-size:13.5px;color:var(--sub);line-height:1.75}
 
   .card{background:var(--cream);border-radius:20px;padding:6px 18px 4px;
     box-shadow:0 16px 40px rgba(107,68,35,.18);margin-bottom:14px}
-
-  .step{padding:17px 2px;border-bottom:1px dashed rgba(138,111,92,.28);
-    transition:opacity .25s}
+  .step{padding:17px 2px;border-bottom:1px dashed rgba(138,111,92,.28);transition:opacity .25s}
   .step:last-child{border-bottom:none}
-  .step.lock{opacity:.42}
+  .step.lock{opacity:.4}
   .head{display:flex;gap:12px;align-items:flex-start}
   .num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--caramel);color:#fff;
     font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;
@@ -42,16 +38,31 @@
   .head h2{font-size:17px;margin:1px 0 4px;font-weight:900;color:var(--coffee)}
   .head .do{font-size:13px;color:var(--sub);line-height:1.6}
   .head .do b{color:var(--accent)}
+  .body{margin:12px 0 0 44px}
 
-  .picks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;margin-left:44px}
-  .pick{background:#fff;border:2px solid rgba(107,68,35,.14);border-radius:12px;
-    padding:12px;cursor:pointer;text-align:center;transition:.15s}
-  .pick .ic{font-size:22px;color:var(--caramel)}
-  .pick .t{font-size:14px;font-weight:800;color:var(--coffee);margin-top:4px}
-  .pick .s{font-size:11px;color:#a08a6f;margin-top:2px}
-  .pick.on{border-color:var(--caramel);background:#faf0e0;box-shadow:0 3px 0 rgba(180,121,58,.3)}
+  .qs{font-size:12px;color:#9a856b;line-height:1.9;margin-bottom:10px}
+  .qs b{color:var(--coffee)}
+  .biginput{width:100%;background:#fff;border:2px solid rgba(107,68,35,.18);border-radius:11px;
+    padding:12px 13px;font-size:15px;color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+    outline:none}
+  .biginput:focus{border-color:var(--caramel);box-shadow:0 0 0 3px rgba(180,121,58,.12)}
+  .checks{display:flex;flex-direction:column;gap:7px;margin-top:11px}
+  .chk{display:flex;gap:9px;align-items:center;background:#faf3e6;border:1px solid rgba(107,68,35,.12);
+    border-radius:9px;padding:9px 11px;font-size:12.5px;color:#6b5641;cursor:pointer;user-select:none}
+  .chk .box{flex:0 0 18px;height:18px;border-radius:5px;border:2px solid #c9b49a;background:#fff;
+    display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800;font-family:sans-serif}
+  .chk.on .box{background:var(--green);border-color:var(--green)}
+  .chk.on{color:var(--green);font-weight:700}
 
-  .rows{margin:12px 0 0 44px}
+  .sample{margin-top:12px;border:1px dashed var(--caramel);border-radius:11px;overflow:hidden}
+  .sample .sh{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;
+    background:#faf0e0;font-size:12.5px;color:var(--coffee);font-weight:800;cursor:pointer}
+  .sample .sh .tog{font-size:11px;color:var(--accent)}
+  .sample .sb{display:none;padding:11px 12px;font-size:12px;color:#6b5641;line-height:1.85}
+  .sample.open .sb{display:block}
+  .sample .use{margin-top:9px;border:none;border-radius:8px;background:var(--caramel);color:#fff;
+    font-size:12px;font-weight:800;padding:7px 12px;cursor:pointer}
+
   .row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
   .row .idx{flex:0 0 22px;height:22px;border-radius:6px;background:#efe0c8;color:var(--coffee);
     font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:sans-serif}
@@ -60,7 +71,10 @@
     font-family:"PingFang SC","Microsoft YaHei",sans-serif;outline:none}
   .row input:focus{border-color:var(--caramel);box-shadow:0 0 0 3px rgba(180,121,58,.12)}
   .row.res input{background:#fbf4e9;color:#6b5641;font-size:12.5px}
-  .hint{font-size:11.5px;color:#a08a6f;margin:2px 0 8px 44px;line-height:1.6}
+  .row .del{flex:0 0 24px;height:24px;border:none;border-radius:6px;background:#f0e2d0;color:#a8562f;
+    font-size:16px;cursor:pointer;line-height:1}
+  .addrow{margin-top:4px;border:1px dashed #c9a978;background:transparent;color:var(--accent);
+    border-radius:8px;padding:7px 12px;font-size:12.5px;font-weight:800;cursor:pointer}
 
   .btn{display:block;width:calc(100% - 44px);margin:12px 0 0 44px;border:none;border-radius:11px;
     background:var(--caramel);color:#fff;font-size:15px;font-weight:800;padding:12px;
@@ -71,7 +85,7 @@
   .result{margin:16px 2px 4px;background:#fff;border:1px solid rgba(138,111,92,.18);
     border-radius:12px;padding:14px;display:none}
   .result.show{display:block}
-  .result .lab{font-size:11px;font-weight:800;letter-spacing:.05em;color:#b07d1f;margin-bottom:10px}
+  .result .lab{font-size:11px;font-weight:800;color:#b07d1f;margin-bottom:10px}
   .mini{border:1px solid var(--line);border-radius:10px;overflow:hidden}
   .mini .mh{background:var(--coffee);color:var(--cream);padding:10px 12px;font-weight:800;font-size:14px}
   .mini .mb{padding:4px 12px}
@@ -82,9 +96,7 @@
   .mini .mt{font-size:13px;font-weight:800;color:var(--coffee)}
   .mini .mr{font-size:11.5px;color:var(--sub);line-height:1.6;margin-top:2px}
   .copy2{width:100%;margin-top:10px;border:none;border-radius:10px;background:var(--green);
-    color:#fff;font-size:13.5px;font-weight:800;padding:10px;cursor:pointer;box-shadow:0 4px 0 #2f7a4b}
-  .copy2.done{box-shadow:0 4px 0 #2f7a4b}
-
+    color:#fff;font-size:13.5px;font-weight:800;padding:10px;cursor:pointer}
   .ahha{background:linear-gradient(135deg,rgba(180,121,58,.16),rgba(168,86,47,.09));
     border:1px solid rgba(180,121,58,.32);border-radius:14px;padding:15px 17px;
     text-align:center;color:var(--coffee);font-size:14px;line-height:1.8;margin-top:4px;display:none}
@@ -98,9 +110,9 @@
 <div class="wrap">
 
   <div class="hero">
-    <span class="kicker">课程研发 · 中级课 · Hello World</span>
+    <span class="kicker">Vibe Teaching · Hello World · 基础课</span>
     <h1>把一件你熟的事，做成一门课</h1>
-    <p>你学过前面的通识课，会照着闯关做出东西了。<br>今天不学新操作——就用你最熟的那件事，走一遍"做课"。做完你会发现，就这么简单。</p>
+    <p>不用教龄，不用证书。你只要会做一件事，而且有人想学——<br>把它说出来、拆成几关，就是一门课。做完你会发现，就这么简单。</p>
   </div>
 
   <div class="card">
@@ -110,20 +122,34 @@
       <div class="head">
         <div class="num">1</div>
         <div>
-          <h2>挑一件你做熟的事</h2>
-          <div class="do">素材是现成的——都是你在通识课里做过很多遍的。选一个。</div>
+          <h2>想一件你熟、别人想学的事</h2>
+          <div class="do">素材不用我给——<b>你自己最清楚有什么能教</b>。想起一件填一件。</div>
         </div>
       </div>
-      <div class="picks">
-        <div class="pick on" data-key="img" onclick="pick('img',this)">
-          <div class="ic">▧</div>
-          <div class="t">做一张图</div>
-          <div class="s">AI 创意课那套</div>
+      <div class="body">
+        <div class="qs">
+          想不出来？问自己三个问题：<br>
+          <b>·</b> 什么东西你做得很熟，朋友老来问你怎么弄？<br>
+          <b>·</b> 什么东西你会，但大多数人做得乱七八糟？<br>
+          <b>·</b> 你曾经随手教会过别人什么？
         </div>
-        <div class="pick" data-key="game" onclick="pick('game',this)">
-          <div class="ic">▦</div>
-          <div class="t">做一个游戏</div>
-          <div class="s">氛围编程那套</div>
+        <input class="biginput" id="skillName" type="text" placeholder="例：收纳整理 / 拍出好看的照片 / 系领带…" oninput="onSkill()">
+        <div class="checks">
+          <div class="chk" id="c1" onclick="tog(1)"><div class="box">✓</div><span>这件事我闭着眼都能做出来</span></div>
+          <div class="chk" id="c2" onclick="tog(2)"><div class="box">✓</div><span>身边有人问过我怎么做 / 想学</span></div>
+        </div>
+        <div class="sample">
+          <div class="sh" onclick="document.querySelector('.sample').classList.toggle('open')">
+            <span>不确定自己的选择？看一个填好的样例</span><span class="tog">展开 / 收起</span>
+          </div>
+          <div class="sb">
+            技能：<b>收纳整理</b><br>
+            ① 分类——把所有东西摊出来，分成几类<br>
+            ② 取舍——丢掉不用的，只留真正需要的<br>
+            ③ 归位——每类固定一个位置，用完放回<br>
+            ④ 维持——每天花两分钟归位<br>
+            <button class="use" onclick="useSample()">用这个样例试试</button>
+          </div>
         </div>
       </div>
     </div>
@@ -134,11 +160,13 @@
         <div class="num">2</div>
         <div>
           <h2>把它拆成几步</h2>
-          <div class="do">一件熟事，就是几个动作连起来。<b>改成你自己的话</b>——这就是你的课的关卡。</div>
+          <div class="do">一件熟事，就是几个动作连起来。<b>几步都行</b>——够学生照着做出来就好。</div>
         </div>
       </div>
-      <div class="hint">已按你选的素材填好示范，改一改，或者全换成你自己的步骤。</div>
-      <div class="rows" id="stepRows"></div>
+      <div class="body">
+        <div id="stepRows"></div>
+        <button class="addrow" onclick="addRow()">＋ 加一步</button>
+      </div>
     </div>
 
     <!-- 关卡3 -->
@@ -150,7 +178,7 @@
           <div class="do">通识课里你最爱看的那一句。学生靠它对照——<b>写清楚，别人才做得出</b>。</div>
         </div>
       </div>
-      <div class="rows" id="resRows"></div>
+      <div class="body"><div id="resRows"></div></div>
     </div>
 
     <!-- 关卡4 -->
@@ -177,109 +205,104 @@
   </div>
 
   <div class="ahha" id="ahha">
-    看，一门课就是 <b>拆几步 + 每步写清楚"做完看到啥"</b>。<br>你没背任何理论，做一遍就做出来了——<b>做课，本来就这么简单。</b>
+    看，一门课就是 <b>挑一件你熟的事 + 拆几步 + 每步写清楚"做完看到啥"</b>。<br>你没背任何理论，做一遍就做出来了——<b>做课，本来就这么简单。</b>
   </div>
 
-  <div class="foot">课程研发 · 中级课 · 你已经在做课了</div>
+  <div class="foot">Vibe Teaching · 你已经在做课了</div>
 
 </div>
 
 <script>
-var DATA = {
-  img: {
-    title:'用 AI 生成一张图',
-    steps:[
-      ['提供背景','把原文交给 AI，让它教你读懂'],
-      ['制作提示词','让 AI 把故事变成能画的提示词'],
-      ['生成图片','把提示词贴进生图工具'],
-      ['反推结构','让 AI 拆出可复用的公式']
-    ]
-  },
-  game: {
-    title:'做出你的第一个游戏',
-    steps:[
-      ['打开 WorkBuddy','在手机上打开 App'],
-      ['复制指令发进去','一句话让它照着做并上线'],
-      ['等它跑完','它自己干活，给你一个链接'],
-      ['发给朋友玩','点开就能玩']
-    ]
-  }
+var SAMPLE = {
+  name:'收纳整理',
+  steps:[
+    ['分类','所有东西摊出来，分成几类'],
+    ['取舍','丢掉不用的，只留真正需要的'],
+    ['归位','每类固定一个位置，用完放回'],
+    ['维持','每天花两分钟归位']
+  ]
 };
-var cur = 'img';
+var checked = {1:false,2:false};
+var n = 3;
 
-function pick(key, el){
-  cur = key;
-  var ps = document.querySelectorAll('.pick');
-  for(var i=0;i<ps.length;i++) ps[i].classList.remove('on');
-  el.classList.add('on');
-  unlock(1);
-  renderRows();
+function tog(i){
+  checked[i]=!checked[i];
+  document.getElementById('c'+i).classList.toggle('on',checked[i]);
+  onSkill();
 }
-
-function unlock(level){
-  for(var i=2;i<=4;i++){
-    var s = document.getElementById('s'+i);
-    if(i<=level+1) s.classList.remove('lock');
-  }
-  if(level>=1) document.getElementById('genBtn').disabled=false;
+function onSkill(){
+  var hasName = document.getElementById('skillName').value.trim().length>0;
+  var ok = hasName && checked[1] && checked[2];
+  for(var i=2;i<=4;i++) document.getElementById('s'+i).classList.toggle('lock',!ok);
+  document.getElementById('genBtn').disabled=!ok;
 }
-
-function renderRows(){
-  var d = DATA[cur];
-  var sr = document.getElementById('stepRows');
-  var rr = document.getElementById('resRows');
-  sr.innerHTML=''; rr.innerHTML='';
-  d.steps.forEach(function(st,i){
-    sr.innerHTML += rowHtml('s_'+i, 'step '+(i+1), st[0], false);
-    rr.innerHTML += rowHtml('r_'+i, '第 '+(i+1)+' 步', st[1], true);
-  });
+function useSample(){
+  document.getElementById('skillName').value=SAMPLE.name;
+  checked[1]=checked[2]=true;
+  document.getElementById('c1').classList.add('on');
+  document.getElementById('c2').classList.add('on');
+  n=SAMPLE.steps.length;
+  renderRows(SAMPLE.steps);
+  onSkill();
+  document.querySelector('.sample').classList.remove('open');
 }
-function rowHtml(id, label, val, isRes){
+function rowHtml(i,isRes,val){
   return '<div class="row'+(isRes?' res':'')+'">'+
-    '<div class="idx">'+(isRes?'›':label.replace('step ',''))+'</div>'+
-    '<input id="'+id+'" type="text" value="'+val.replace(/"/g,'&quot;')+'" '+
+    '<div class="idx">'+(isRes?'›':(i+1))+'</div>'+
+    '<input id="'+(isRes?'r_':'s_')+i+'" type="text" value="'+String(val||'').replace(/"/g,'&quot;')+'" '+
     'placeholder="'+(isRes?'做完你会看到…':'这一步做什么')+'">'+
+    (isRes?'':'<button class="del" onclick="delRow('+i+')" title="删掉这一步">×</button>')+
     '</div>';
 }
+function renderRows(data){
+  var sr=document.getElementById('stepRows'), rr=document.getElementById('resRows');
+  sr.innerHTML=''; rr.innerHTML='';
+  for(var i=0;i<n;i++){
+    sr.innerHTML+=rowHtml(i,false,data&&data[i]?data[i][0]:'');
+    rr.innerHTML+=rowHtml(i,true,data&&data[i]?data[i][1]:'');
+  }
+}
+function addRow(){ n++; renderRows(sync()); }
+function delRow(i){
+  if(n<=1) return;
+  var s=[];
+  for(var k=0;k<n;k++){ if(k!==i) s.push([val('s_'+k),val('r_'+k)]); }
+  n--;
+  renderRows(s);
+}
+function sync(){
+  var s=[];
+  for(var k=0;k<n;k++) s.push([val('s_'+k),val('r_'+k)]);
+  return s;
+}
+function val(id){ var e=document.getElementById(id); return e?e.value:''; }
 
 function gen(){
-  var d = DATA[cur];
-  var titleVal = d.title;
-  var body='';
-  d.steps.forEach(function(_,i){
-    var t = document.getElementById('s_'+i).value.trim() || ('第 '+(i+1)+' 步');
-    var r = document.getElementById('r_'+i).value.trim() || '（还没写做完看到什么）';
-    body += '<div class="ms"><div class="mn">'+(i+1)+'</div><div>'+
-      '<div class="mt">'+esc(t)+'</div><div class="mr">'+esc(r)+'</div></div></div>';
-  });
-  document.getElementById('mTitle').textContent = titleVal;
-  document.getElementById('mBody').innerHTML = body;
+  var title=document.getElementById('skillName').value.trim()||'我做的一门课';
+  var body='', lines=[title,''];
+  for(var i=0;i<n;i++){
+    var t=val('s_'+i).trim()||('第 '+(i+1)+' 步');
+    var r=val('r_'+i).trim()||'（还没写做完看到什么）';
+    body+='<div class="ms"><div class="mn">'+(i+1)+'</div><div><div class="mt">'+esc(t)+'</div><div class="mr">'+esc(r)+'</div></div></div>';
+    lines.push((i+1)+'. '+t);
+    lines.push('   做完你会看到：'+r);
+  }
+  document.getElementById('mTitle').textContent=title;
+  document.getElementById('mBody').innerHTML=body;
   document.getElementById('result').classList.add('show');
   document.getElementById('ahha').classList.add('show');
   document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
-  window._courseText = buildText(titleVal);
+  window._courseText=lines.join('\n');
 }
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-function buildText(title){
-  var lines=[title,''];
-  DATA[cur].steps.forEach(function(_,i){
-    var t=document.getElementById('s_'+i).value.trim();
-    var r=document.getElementById('r_'+i).value.trim();
-    lines.push((i+1)+'. '+t);
-    lines.push('   做完你会看到：'+r);
-  });
-  return lines.join('\n');
-}
 function copyCourse(){
-  var btn=document.getElementById('copy2');
-  var text=window._courseText||'';
+  var btn=document.getElementById('copy2'), text=window._courseText||'';
   function ok(){btn.textContent='已复制，你做出了一门课';setTimeout(function(){btn.textContent='复制这张课程图'},2200)}
   function fb(){var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
     document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){btn.textContent='请长按复制'}
     document.body.removeChild(ta)}
   if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(text).then(ok).catch(fb);else fb();
 }
-
 renderRows();
 </script>
 </body>
